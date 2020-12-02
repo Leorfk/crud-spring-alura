@@ -1,4 +1,4 @@
-package br.com.alura.forum.config.validacao.security;
+package br.com.alura.forum.config.security;
 
 import br.com.alura.forum.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +55,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);
+
     }
 }
