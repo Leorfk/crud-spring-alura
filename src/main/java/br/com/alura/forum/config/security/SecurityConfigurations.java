@@ -28,6 +28,14 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    private static final String[] AUTH_WHITELIST = {
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**"
+    };
+
+
     @Override
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
@@ -54,7 +62,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     //config de recursos estáticos (html,css,js)
     @Override
     public void configure(WebSecurity web) throws Exception {
-        super.configure(web);
+        web.ignoring().antMatchers(AUTH_WHITELIST);
 
     }
 }
